@@ -44,7 +44,7 @@ namespace GestorDePessoas
 
             if (tabelaDeDados.Rows.Count > 0)
             {
-                MessageBox.Show("Confirmado");
+                this.DialogResult = DialogResult.OK;
             }
             else
             {
