@@ -44,7 +44,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(139, 9);
+            this.label1.Location = new System.Drawing.Point(144, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(153, 46);
             this.label1.TabIndex = 0;
@@ -95,6 +95,7 @@
             this.textBoxPSW.Name = "textBoxPSW";
             this.textBoxPSW.Size = new System.Drawing.Size(184, 20);
             this.textBoxPSW.TabIndex = 5;
+            this.textBoxPSW.UseSystemPasswordChar = true;
             // 
             // buttonSave
             // 
@@ -104,7 +105,7 @@
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(152, 53);
             this.buttonSave.TabIndex = 6;
-            this.buttonSave.Text = "Salvar";
+            this.buttonSave.Text = "Login";
             this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
@@ -118,6 +119,7 @@
             this.buttonCancel.TabIndex = 7;
             this.buttonCancel.Text = "Cancelar";
             this.buttonCancel.UseVisualStyleBackColor = false;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // Login_Form
             // 
