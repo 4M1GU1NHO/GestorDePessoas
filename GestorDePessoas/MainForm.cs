@@ -21,5 +21,36 @@ namespace GestorDePessoas
         {
 
         }
+
+        private void novoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InsertForm insertForm = new InsertForm();
+            insertForm.Show(this);
+        }
+
+        private void novoAlunoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void estatísticasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void editarRemoverToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gerenciarAlunosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void imprimirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
