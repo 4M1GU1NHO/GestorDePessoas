@@ -66,7 +66,7 @@
             // 
             this.textBoxName.Location = new System.Drawing.Point(207, 60);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(202, 20);
+            this.textBoxName.Size = new System.Drawing.Size(213, 20);
             this.textBoxName.TabIndex = 1;
             // 
             // label2
@@ -83,7 +83,7 @@
             // 
             this.textBoxSurname.Location = new System.Drawing.Point(207, 86);
             this.textBoxSurname.Name = "textBoxSurname";
-            this.textBoxSurname.Size = new System.Drawing.Size(202, 20);
+            this.textBoxSurname.Size = new System.Drawing.Size(213, 20);
             this.textBoxSurname.TabIndex = 3;
             // 
             // label3
@@ -118,7 +118,7 @@
             this.groupBoxGender.Controls.Add(this.radioButtonOther);
             this.groupBoxGender.Controls.Add(this.radioButtonFem);
             this.groupBoxGender.Controls.Add(this.radioButtonMasc);
-            this.groupBoxGender.Location = new System.Drawing.Point(207, 208);
+            this.groupBoxGender.Location = new System.Drawing.Point(207, 210);
             this.groupBoxGender.Name = "groupBoxGender";
             this.groupBoxGender.Size = new System.Drawing.Size(236, 51);
             this.groupBoxGender.TabIndex = 7;
@@ -127,7 +127,7 @@
             // radioButtonOther
             // 
             this.radioButtonOther.AutoSize = true;
-            this.radioButtonOther.Location = new System.Drawing.Point(173, 20);
+            this.radioButtonOther.Location = new System.Drawing.Point(172, 19);
             this.radioButtonOther.Name = "radioButtonOther";
             this.radioButtonOther.Size = new System.Drawing.Size(51, 17);
             this.radioButtonOther.TabIndex = 2;
@@ -161,9 +161,8 @@
             // 
             this.textBoxTelephone.Location = new System.Drawing.Point(207, 295);
             this.textBoxTelephone.Name = "textBoxTelephone";
-            this.textBoxTelephone.Size = new System.Drawing.Size(202, 20);
+            this.textBoxTelephone.Size = new System.Drawing.Size(213, 20);
             this.textBoxTelephone.TabIndex = 9;
-            this.textBoxTelephone.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label5
             // 
@@ -179,7 +178,7 @@
             // 
             this.textBoxAdress.Location = new System.Drawing.Point(207, 346);
             this.textBoxAdress.Name = "textBoxAdress";
-            this.textBoxAdress.Size = new System.Drawing.Size(202, 20);
+            this.textBoxAdress.Size = new System.Drawing.Size(213, 20);
             this.textBoxAdress.TabIndex = 11;
             // 
             // label6
@@ -213,12 +212,13 @@
             // buttonSendPhoto
             // 
             this.buttonSendPhoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSendPhoto.Location = new System.Drawing.Point(535, 318);
+            this.buttonSendPhoto.Location = new System.Drawing.Point(531, 318);
             this.buttonSendPhoto.Name = "buttonSendPhoto";
             this.buttonSendPhoto.Size = new System.Drawing.Size(122, 48);
             this.buttonSendPhoto.TabIndex = 14;
             this.buttonSendPhoto.Text = "Enviar";
             this.buttonSendPhoto.UseVisualStyleBackColor = true;
+            this.buttonSendPhoto.Click += new System.EventHandler(this.buttonSendPhoto_Click);
             // 
             // buttonSave
             // 
@@ -229,6 +229,7 @@
             this.buttonSave.TabIndex = 15;
             this.buttonSave.Text = "Salvar";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // buttonCancel
             // 
@@ -239,6 +240,7 @@
             this.buttonCancel.TabIndex = 16;
             this.buttonCancel.Text = "Cancelar";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // InsertForm
             // 

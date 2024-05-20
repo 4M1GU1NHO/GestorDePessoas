@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,10 +17,68 @@ namespace GestorDePessoas
         {
             InitializeComponent();
         }       
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void buttonSave_Click(object sender, EventArgs e)
         {
+            Estudante estudante = new Estudante();
+            string nome = textBoxName.Text;
+            string sobrenome = textBoxSurname.Text;
+            DateTime nascimento = dateTimePickerBirthday.Value;
+            string telefone = textBoxTelephone.Text;
+            string endereco = textBoxAdress.Text;
+            string genero = "Outro";
 
+            if (radioButtonMasc.Checked == true)
+            {
+                genero = "Masculino";
+            }
+            else if (radioButtonFem.Checked == true)
+            {
+                genero = "Feminino";
+            }
+ 
+            MemoryStream foto = new MemoryStream();
+
+            int Birthday = dateTimePickerBirthday.Value.Year;
+            int todayDate = DateTime.Now.Year;
+
+            if ((Birthday - todayDate) < 10 || (Birthday - todayDate) > 100)
+            {
+                MessageBox.Show("Idade do aluno inválida.", "Data de nascimento inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void buttonSendPhoto_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog searchPhoto = new OpenFileDialog();
+            
+            searchPhoto.Filter = "Escolha a foto (*.jpg;*.png;*.jpeg;*.gif)|*.jpg;*.png;*.jpeg;*.gif";
+
+            if(searchPhoto.ShowDialog() == DialogResult.OK)
+            { 
+                pictureBoxStudent.Image = Image.FromFile(searchPhoto.FileName);
+
+            }
+        }
+
+        bool Verify()
+        {
+            if ((textBoxName.Text.Trim() == "") ||
+                (textBoxSurname.Text.Trim() == "") ||
+                (textBoxTelephone.Text.Trim() == "") ||
+                (textBoxAdress.Text.Trim() == "") ||
+                (pictureBoxStudent.Image == null))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }
