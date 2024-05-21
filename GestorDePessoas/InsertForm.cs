@@ -41,9 +41,25 @@ namespace GestorDePessoas
             int Birthday = dateTimePickerBirthday.Value.Year;
             int todayDate = DateTime.Now.Year;
 
-            if ((Birthday - todayDate) < 10 || (Birthday - todayDate) > 100)
+            if ((todayDate - todayDate) < 10 || (todayDate - Birthday) > 100)
             {
                 MessageBox.Show("Idade do aluno inválida.", "Data de nascimento inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (Verify())
+            {
+                pictureBoxStudent.Image.Save(foto, pictureBoxStudent.Image.RawFormat);
+                if (estudante.inserirEstudante(nome, sobrenome, nascimento, telefone, genero, endereco, foto))
+                {
+                    MessageBox.Show("Login criado com sucesso", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Falha no login", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Informações inválidas", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
