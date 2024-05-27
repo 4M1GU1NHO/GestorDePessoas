@@ -30,7 +30,8 @@ namespace GestorDePessoas
 
         private void novoAlunoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            StudentList studentList = new StudentList();
+            studentList.Show(this);
         }
 
         private void estatísticasToolStripMenuItem_Click(object sender, EventArgs e)

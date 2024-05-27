@@ -34,7 +34,7 @@ namespace GestorDePessoas
             
             MySqlDataAdapter AdaptadorSql = new MySqlDataAdapter();
             DataTable tabelaDeDados = new DataTable();
-            MySqlCommand comandoSql = new MySqlCommand("SELECT * FROM `users` WHERE `username` = @username AND `password` = @password ", meuBancoDeDados.getConexao);
+            MySqlCommand comandoSql = new MySqlCommand("SELECT * FROM `usuarios` WHERE `username` = @username AND `password` = @password ", meuBancoDeDados.getConexao);
 
             comandoSql.Parameters.Add("@username", MySqlDbType.VarChar).Value = textBoxUser.Text;
             comandoSql.Parameters.Add("@password", MySqlDbType.VarChar).Value = textBoxPSW.Text;

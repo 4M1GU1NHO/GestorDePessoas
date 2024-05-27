@@ -88,6 +88,7 @@
             this.textBoxUser.Name = "textBoxUser";
             this.textBoxUser.Size = new System.Drawing.Size(184, 20);
             this.textBoxUser.TabIndex = 4;
+            this.textBoxUser.Text = "admin";
             // 
             // textBoxPSW
             // 
@@ -95,6 +96,7 @@
             this.textBoxPSW.Name = "textBoxPSW";
             this.textBoxPSW.Size = new System.Drawing.Size(184, 20);
             this.textBoxPSW.TabIndex = 5;
+            this.textBoxPSW.Text = "admin";
             this.textBoxPSW.UseSystemPasswordChar = true;
             // 
             // buttonSave

@@ -1,9 +1,11 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,8 +24,8 @@ namespace GestorDePessoas
             comando.Parameters.Add("@genero", MySqlDbType.VarChar).Value = genero;
             comando.Parameters.Add("@telefone", MySqlDbType.VarChar).Value = telefone;
             comando.Parameters.Add("@endereco", MySqlDbType.Text).Value = endereco;
-            comando.Parameters.Add("@foto", MySqlDbType.LongBlob).Value = foto;
-            
+            comando.Parameters.Add("@foto", MySqlDbType.LongBlob).Value = foto.ToArray();
+
             meuBancoDeDados.abrirConexao();
 
             if(comando.ExecuteNonQuery() == 1)
@@ -36,7 +38,15 @@ namespace GestorDePessoas
                 meuBancoDeDados.fecharConexao();
                 return false;
             }
+        }
+        public DataTable getStudent(MySqlCommand comando)
+        {
+            comando.Connection = meuBancoDeDados.getConexao;
+            MySqlDataAdapter adaptador = new MySqlDataAdapter(comando);
+            DataTable tabelaDeDados = new DataTable();
+            adaptador.Fill(tabelaDeDados);
 
+            return tabelaDeDados;
         }
     }
     

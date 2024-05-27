@@ -131,7 +131,6 @@
             this.radioButtonOther.Name = "radioButtonOther";
             this.radioButtonOther.Size = new System.Drawing.Size(51, 17);
             this.radioButtonOther.TabIndex = 2;
-            this.radioButtonOther.TabStop = true;
             this.radioButtonOther.Text = "Outro";
             this.radioButtonOther.UseVisualStyleBackColor = true;
             // 
@@ -142,13 +141,13 @@
             this.radioButtonFem.Name = "radioButtonFem";
             this.radioButtonFem.Size = new System.Drawing.Size(67, 17);
             this.radioButtonFem.TabIndex = 1;
-            this.radioButtonFem.TabStop = true;
             this.radioButtonFem.Text = "Feminino";
             this.radioButtonFem.UseVisualStyleBackColor = true;
             // 
             // radioButtonMasc
             // 
             this.radioButtonMasc.AutoSize = true;
+            this.radioButtonMasc.Checked = true;
             this.radioButtonMasc.Location = new System.Drawing.Point(7, 20);
             this.radioButtonMasc.Name = "radioButtonMasc";
             this.radioButtonMasc.Size = new System.Drawing.Size(73, 17);
