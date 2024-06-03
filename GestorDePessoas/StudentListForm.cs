@@ -38,10 +38,11 @@ namespace GestorDePessoas
         {
 
         }
-
-        private void dataGridViewStudentList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+     
+        private void dataGridViewStudentList_DoubleClick(object sender, EventArgs e)
         {
 
         }
+        
     }
 }
