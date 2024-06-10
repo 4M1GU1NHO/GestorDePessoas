@@ -40,7 +40,8 @@
             this.dataGridViewStudentList.Location = new System.Drawing.Point(1, 1);
             this.dataGridViewStudentList.Name = "dataGridViewStudentList";
             this.dataGridViewStudentList.Size = new System.Drawing.Size(799, 399);
-            this.dataGridViewStudentList.TabIndex = 0;            
+            this.dataGridViewStudentList.TabIndex = 0;
+            this.dataGridViewStudentList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewStudentList_CellContentClick);
             this.dataGridViewStudentList.DoubleClick += new System.EventHandler(this.dataGridViewStudentList_DoubleClick);
             // 
             // buttonUpdate
