@@ -49,6 +49,8 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonErase = new System.Windows.Forms.Button();
             this.buttonSendPhoto = new System.Windows.Forms.Button();
+            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBoxGender.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStudent)).BeginInit();
             this.SuspendLayout();
@@ -176,7 +178,7 @@
             // 
             // textBoxID
             // 
-            this.textBoxID.Location = new System.Drawing.Point(230, 57);
+            this.textBoxID.Location = new System.Drawing.Point(230, 16);
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(109, 20);
             this.textBoxID.TabIndex = 13;
@@ -185,7 +187,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(38, 51);
+            this.label1.Location = new System.Drawing.Point(38, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 25);
             this.label1.TabIndex = 12;
@@ -212,7 +214,7 @@
             // insertButton
             // 
             this.insertButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.insertButton.Location = new System.Drawing.Point(345, 56);
+            this.insertButton.Location = new System.Drawing.Point(345, 15);
             this.insertButton.Name = "insertButton";
             this.insertButton.Size = new System.Drawing.Size(98, 21);
             this.insertButton.TabIndex = 26;
@@ -228,6 +230,7 @@
             this.buttonSave.TabIndex = 27;
             this.buttonSave.Text = "Salvar";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // buttonErase
             // 
@@ -250,11 +253,30 @@
             this.buttonSendPhoto.UseVisualStyleBackColor = true;
             this.buttonSendPhoto.Click += new System.EventHandler(this.buttonSendPhoto_Click);
             // 
+            // textBoxName
+            // 
+            this.textBoxName.Location = new System.Drawing.Point(230, 56);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(213, 20);
+            this.textBoxName.TabIndex = 31;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(38, 51);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(70, 25);
+            this.label8.TabIndex = 30;
+            this.label8.Text = "Nome:";
+            // 
             // Update_DeleteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(795, 466);
+            this.Controls.Add(this.textBoxName);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.buttonSendPhoto);
             this.Controls.Add(this.buttonErase);
             this.Controls.Add(this.buttonSave);
@@ -305,5 +327,7 @@
         internal System.Windows.Forms.TextBox textBoxSurname;
         internal System.Windows.Forms.TextBox textBoxID;
         internal System.Windows.Forms.PictureBox pictureBoxStudent;
+        private System.Windows.Forms.Label label8;
+        internal System.Windows.Forms.TextBox textBoxName;
     }
 }

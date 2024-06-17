@@ -96,5 +96,10 @@ namespace GestorDePessoas
                 return true;
             }
         }
+
+        private void textBoxSurname_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
