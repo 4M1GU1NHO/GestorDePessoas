@@ -45,7 +45,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBoxStudent = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.insertButton = new System.Windows.Forms.Button();
+            this.searchButton = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonErase = new System.Windows.Forms.Button();
             this.buttonSendPhoto = new System.Windows.Forms.Button();
@@ -182,6 +182,7 @@
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(109, 20);
             this.textBoxID.TabIndex = 13;
+            this.textBoxID.TextChanged += new System.EventHandler(this.textBoxID_TextChanged);
             // 
             // label1
             // 
@@ -211,15 +212,16 @@
             this.label7.TabIndex = 24;
             this.label7.Text = "Foto:";
             // 
-            // insertButton
+            // searchButton
             // 
-            this.insertButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.insertButton.Location = new System.Drawing.Point(345, 15);
-            this.insertButton.Name = "insertButton";
-            this.insertButton.Size = new System.Drawing.Size(98, 21);
-            this.insertButton.TabIndex = 26;
-            this.insertButton.Text = "Cadastrar";
-            this.insertButton.UseVisualStyleBackColor = true;
+            this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchButton.Location = new System.Drawing.Point(345, 15);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(98, 21);
+            this.searchButton.TabIndex = 26;
+            this.searchButton.Text = "Buscar";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // buttonSave
             // 
@@ -241,6 +243,7 @@
             this.buttonErase.TabIndex = 28;
             this.buttonErase.Text = "Apagar";
             this.buttonErase.UseVisualStyleBackColor = true;
+            this.buttonErase.Click += new System.EventHandler(this.buttonErase_Click);
             // 
             // buttonSendPhoto
             // 
@@ -274,13 +277,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(795, 466);
+            this.ClientSize = new System.Drawing.Size(783, 466);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.buttonSendPhoto);
             this.Controls.Add(this.buttonErase);
             this.Controls.Add(this.buttonSave);
-            this.Controls.Add(this.insertButton);
+            this.Controls.Add(this.searchButton);
             this.Controls.Add(this.pictureBoxStudent);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBoxAdress);
@@ -314,7 +317,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button insertButton;
+        private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonErase;
         private System.Windows.Forms.Button buttonSendPhoto;

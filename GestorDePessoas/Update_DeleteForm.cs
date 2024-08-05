@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,6 +19,9 @@ namespace GestorDePessoas
             InitializeComponent();
         }
 
+        Estudante estudante = new Estudante();
+
+        MeuBancoDeDados meuBancoDeDados = new MeuBancoDeDados();
         private void buttonSendPhoto_Click(object sender, EventArgs e)
         {
             OpenFileDialog searchPhoto = new OpenFileDialog();
@@ -33,7 +37,7 @@ namespace GestorDePessoas
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            Estudante estudante = new Estudante();
+            
             
             int id = Convert.ToInt32(textBoxID.Text);
             string nome = textBoxName.Text;
@@ -64,7 +68,7 @@ namespace GestorDePessoas
             else if (Verify())
             {
                 pictureBoxStudent.Image.Save(foto, pictureBoxStudent.Image.RawFormat);
-                if (estudante.uptadeStudent(id,nome, sobrenome, nascimento, telefone, genero, endereco, foto))
+                if (estudante.uptadeStudent(id, nome, sobrenome, nascimento, telefone, genero, endereco, foto))
                 {
                     MessageBox.Show("Informações alteradas com sucesso", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -91,6 +95,69 @@ namespace GestorDePessoas
             else
             {
                 return true;
+            }
+        }
+
+        private void buttonErase_Click(object sender, EventArgs e)
+        {
+            int StudentID = Convert.ToInt32(textBoxName.Text);
+            if (MessageBox.Show("Tem certeza que deseja apagar seus dados?","Deletar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if(estudante.deleteStudent(StudentID))
+                { 
+                    MessageBox.Show("Estudante apagado com sucesso.","Apagar");
+                }
+            }
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int ID = Convert.ToInt32(textBoxID.Text);
+                MySqlCommand comando = new MySqlCommand("SELECT `id`, `nome`, `sobrenome`, `nascimento`, `genero`, `telefone`, `endereco`, `foto` FROM `estudantes` WHERE `id`=@id", meuBancoDeDados.getConexao);
+
+                DataTable tabela = estudante.getStudent(comando);
+
+                comando.Parameters.Add("@ID", MySqlDbType.Int32).Value = ID;
+
+                if (tabela.Rows.Count > 0)
+                {
+
+                    textBoxName.Text = tabela.Rows[0]["nome"].ToString();
+                    textBoxSurname.Text = tabela.Rows[0]["sobrenome"].ToString();
+                    textBoxTelephone.Text = tabela.Rows[0]["telefone"].ToString();
+                    textBoxAdress.Text = tabela.Rows[0]["endereco"].ToString();
+                    dateTimePickerBirthday.Value = (DateTime)tabela.Rows[0]["nascimento"];
+
+                    if (tabela.Rows[0]["genero"].ToString() == "Masculino")
+                    {
+                        radioButtonMasc.Checked = true;
+                    }
+                    else if (tabela.Rows[0]["genero"].ToString() == "Feminino")
+                    {
+                        radioButtonFem.Checked = true;
+                    }
+                    else
+                    {
+                        radioButtonOther.Checked = true;
+                    }
+
+                    byte[] photo = (byte[])tabela.Rows[0]["foto"];
+                    MemoryStream photoStudent = new MemoryStream(photo);
+                    pictureBoxStudent.Image = Image.FromStream(photoStudent);
+                }
+            } catch (Exception exeption)
+              { 
+                MessageBox.Show("Digite uma ID válida.", "ID Inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+              }
+        }
+
+        private void textBoxID_TextChanged(object sender, EventArgs e)
+        {
+            if(!char.IsControl(e.KeyChar) && !char.IsDigit(e.MyChar))
+            {
+                e.Handled = true;
             }
         }
     }
