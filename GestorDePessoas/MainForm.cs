@@ -36,7 +36,8 @@ namespace GestorDePessoas
 
         private void estatísticasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            StatisticsForm insertForm = new StatisticsForm();
+            insertForm.Show(this);
         }
 
         private void editarRemoverToolStripMenuItem_Click(object sender, EventArgs e)

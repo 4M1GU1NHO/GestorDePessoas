@@ -37,49 +37,54 @@ namespace GestorDePessoas
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            
-            
-            int id = Convert.ToInt32(textBoxID.Text);
-            string nome = textBoxName.Text;
-            string sobrenome = textBoxSurname.Text;
-            DateTime nascimento = dateTimePickerBirthday.Value;
-            string telefone = textBoxTelephone.Text;
-            string endereco = textBoxAdress.Text;
-            string genero = "Outro";
-
-            if (radioButtonMasc.Checked == true)
+            try
             {
-                genero = "Masculino";
-            }
-            else if (radioButtonFem.Checked == true)
-            {
-                genero = "Feminino";
-            }
+                int id = Convert.ToInt32(textBoxID.Text);
+                string nome = textBoxName.Text;
+                string sobrenome = textBoxSurname.Text;
+                DateTime nascimento = dateTimePickerBirthday.Value;
+                string telefone = textBoxTelephone.Text;
+                string endereco = textBoxAdress.Text;
+                string genero = "Outro";
 
-            MemoryStream foto = new MemoryStream();
-
-            int Birthday = dateTimePickerBirthday.Value.Year;
-            int todayDate = DateTime.Now.Year;
-
-            if ((todayDate - todayDate) < 10 || (todayDate - Birthday) > 100)
-            {
-                MessageBox.Show("Idade do aluno inválida.", "Data de nascimento inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (Verify())
-            {
-                pictureBoxStudent.Image.Save(foto, pictureBoxStudent.Image.RawFormat);
-                if (estudante.uptadeStudent(id, nome, sobrenome, nascimento, telefone, genero, endereco, foto))
+                if (radioButtonMasc.Checked == true)
                 {
-                    MessageBox.Show("Informações alteradas com sucesso", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    genero = "Masculino";
+                }
+                else if (radioButtonFem.Checked == true)
+                {
+                    genero = "Feminino";
+                }
+
+                MemoryStream foto = new MemoryStream();
+
+                int Birthday = dateTimePickerBirthday.Value.Year;
+                int todayDate = DateTime.Now.Year;
+
+                if ((todayDate - todayDate) < 10 || (todayDate - Birthday) > 100)
+                {
+                    MessageBox.Show("Idade do aluno inválida.", "Data de nascimento inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (Verify())
+                {
+                    pictureBoxStudent.Image.Save(foto, pictureBoxStudent.Image.RawFormat);
+                    if (estudante.uptadeStudent(id, nome, sobrenome, nascimento, telefone, genero, endereco, foto))
+                    {
+                        MessageBox.Show("Informações alteradas com sucesso", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Falha no salvamento", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Falha no salvamento", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Informações inválidas", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else
+            catch
             {
-                MessageBox.Show("Informações inválidas", "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ocorreu um problema.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         bool Verify()
@@ -100,13 +105,20 @@ namespace GestorDePessoas
 
         private void buttonErase_Click(object sender, EventArgs e)
         {
-            int StudentID = Convert.ToInt32(textBoxName.Text);
-            if (MessageBox.Show("Tem certeza que deseja apagar seus dados?","Deletar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            try
             {
-                if(estudante.deleteStudent(StudentID))
-                { 
-                    MessageBox.Show("Estudante apagado com sucesso.","Apagar");
+                int StudentID = Convert.ToInt32(textBoxName.Text);
+                if (MessageBox.Show("Tem certeza que deseja deletar seus dados?", "Deletar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (estudante.deleteStudent(StudentID))
+                    {
+                        MessageBox.Show("Estudante deletado com sucesso.", "Deletado");
+                    }
                 }
+            }
+            catch 
+            {
+                MessageBox.Show("Ocorreu um problema.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -147,15 +159,16 @@ namespace GestorDePessoas
                     MemoryStream photoStudent = new MemoryStream(photo);
                     pictureBoxStudent.Image = Image.FromStream(photoStudent);
                 }
-            } catch (Exception exeption)
-              { 
+            } 
+            catch 
+            { 
                 MessageBox.Show("Digite uma ID válida.", "ID Inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
-              }
+            }
         }
-
-        private void textBoxID_TextChanged(object sender, EventArgs e)
+       
+        private void textBoxID_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(!char.IsControl(e.KeyChar) && !char.IsDigit(e.MyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
