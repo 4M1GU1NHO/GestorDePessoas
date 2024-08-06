@@ -28,35 +28,41 @@ namespace GestorDePessoas
             colorPanelWomen = panelWomen.BackColor;
         }
 
-        private void panelTotal_MouseEnter(object sender, EventArgs e)
+        private void labelTotal_MouseEnter(object sender, EventArgs e)
         {
-            panelTotal.BackColor = Color.Gray;
-            labelTotal.ForeColor = Color.White;
-        }
-
-        private void panelTotal_MouseLeave(object sender, EventArgs e)
-        {
+            panelTotal.BackColor = Color.Black;
+            labelTotal.ForeColor = colorPanelTotal;
 
         }
 
-        private void panelMen_MouseEnter(object sender, EventArgs e)
+        private void labelTotal_MouseLeave(object sender, EventArgs e)
         {
-
+            panelTotal.BackColor = colorPanelTotal;
+            labelTotal.ForeColor = Color.Black;
         }
 
-        private void panelMen_MouseLeave(object sender, EventArgs e)
+        private void labelMen_MouseEnter(object sender, EventArgs e)
         {
-
+            panelMen.BackColor = Color.Black;
+            labelMen.ForeColor = colorPanelMen;
         }
 
-        private void panelWomen_MouseEnter(object sender, EventArgs e)
+        private void labelMen_MouseLeave(object sender, EventArgs e)
         {
-
+            panelMen.BackColor = colorPanelMen;
+            labelMen.ForeColor = Color.Black;
         }
 
-        private void panelWomen_MouseLeave(object sender, EventArgs e)
+        private void labelWomen_MouseEnter(object sender, EventArgs e)
         {
+            panelWomen.BackColor = Color.Black;
+            labelWomen.ForeColor = colorPanelWomen;
+        }
 
+        private void labelWomen_MouseLeave(object sender, EventArgs e)
+        {
+            panelWomen.BackColor = colorPanelWomen;
+            labelWomen.ForeColor = Color.Black;
         }
     }
 }
