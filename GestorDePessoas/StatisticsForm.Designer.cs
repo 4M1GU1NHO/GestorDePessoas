@@ -51,10 +51,10 @@
             // labelMen
             // 
             this.labelMen.AutoSize = true;
-            this.labelMen.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMen.Location = new System.Drawing.Point(78, 79);
+            this.labelMen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMen.Location = new System.Drawing.Point(12, 14);
             this.labelMen.Name = "labelMen";
-            this.labelMen.Size = new System.Drawing.Size(165, 29);
+            this.labelMen.Size = new System.Drawing.Size(97, 17);
             this.labelMen.TabIndex = 1;
             this.labelMen.Text = "Meninos: 00%";
             this.labelMen.MouseEnter += new System.EventHandler(this.labelMen_MouseEnter);
@@ -72,10 +72,10 @@
             // labelWomen
             // 
             this.labelWomen.AutoSize = true;
-            this.labelWomen.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelWomen.Location = new System.Drawing.Point(90, 79);
+            this.labelWomen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelWomen.Location = new System.Drawing.Point(17, 14);
             this.labelWomen.Name = "labelWomen";
-            this.labelWomen.Size = new System.Drawing.Size(164, 29);
+            this.labelWomen.Size = new System.Drawing.Size(97, 17);
             this.labelWomen.TabIndex = 2;
             this.labelWomen.Text = "Meninas: 00%";
             this.labelWomen.MouseEnter += new System.EventHandler(this.labelWomen_MouseEnter);
@@ -93,10 +93,10 @@
             // labelTotal
             // 
             this.labelTotal.AutoSize = true;
-            this.labelTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotal.Location = new System.Drawing.Point(181, 112);
+            this.labelTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotal.Location = new System.Drawing.Point(12, 9);
             this.labelTotal.Name = "labelTotal";
-            this.labelTotal.Size = new System.Drawing.Size(316, 31);
+            this.labelTotal.Size = new System.Drawing.Size(167, 17);
             this.labelTotal.TabIndex = 0;
             this.labelTotal.Text = "Total de Estudantes: 000";
             this.labelTotal.MouseEnter += new System.EventHandler(this.labelTotal_MouseEnter);
@@ -111,7 +111,7 @@
             this.Controls.Add(this.panelWomen);
             this.Controls.Add(this.panelMen);
             this.Name = "StatisticsForm";
-            this.Text = "StatisticsForm";
+            this.Text = "Quantidade de Estudantes";
             this.Load += new System.EventHandler(this.StatisticsForm_Load);
             this.panelMen.ResumeLayout(false);
             this.panelMen.PerformLayout();

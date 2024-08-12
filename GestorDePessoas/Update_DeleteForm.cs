@@ -68,7 +68,7 @@ namespace GestorDePessoas
                 else if (Verify())
                 {
                     pictureBoxStudent.Image.Save(foto, pictureBoxStudent.Image.RawFormat);
-                    if (estudante.uptadeStudent(id, nome, sobrenome, nascimento, telefone, genero, endereco, foto))
+                    if (estudante.updadeStudent(id, nome, sobrenome, nascimento, telefone, genero, endereco, foto))
                     {
                         MessageBox.Show("Informações alteradas com sucesso", "Login", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }

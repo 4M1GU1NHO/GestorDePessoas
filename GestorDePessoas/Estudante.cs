@@ -6,6 +6,7 @@ using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Linq;
 using System.Net.Http.Headers;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -48,7 +49,7 @@ namespace GestorDePessoas
 
             return tabelaDeDados;
         }
-        public bool uptadeStudent(int id, string nome, string sobrenome, DateTime nascimento, string telefone, string genero, string endereco, MemoryStream foto)
+        public bool updadeStudent(int id, string nome, string sobrenome, DateTime nascimento, string telefone, string genero, string endereco, MemoryStream foto)
         {
             MySqlCommand comando = new MySqlCommand("UPDATE `estudantes` SET `nome`=@nome,`sobrenome`=@sobrenome,`nascimento`=@nascimento,`genero`=@genero,`telefone`=@telefone,`endereco`=@endereco,`foto`=@foto WHERE 1", meuBancoDeDados.getConexao);
 
@@ -90,6 +91,28 @@ namespace GestorDePessoas
                 meuBancoDeDados.fecharConexao();
                 return false;
             }
+        }
+        public string doCount(string search) 
+        {
+            MySqlCommand comando = new MySqlCommand(search, meuBancoDeDados.getConexao);
+            
+            meuBancoDeDados.abrirConexao();
+            string count = comando.ExecuteScalar().ToString();
+            meuBancoDeDados.fecharConexao();
+            
+            return count;
+        }
+        public string totalStudents()
+        {
+            return doCount("SELECT COUNT(*) FROM `estudantes`");
+        }
+        public string totalStudentsMale()
+        {
+            return doCount("SELECT COUNT(*) FROM `estudantes` WHERE `genero`='Masculino'");
+        }
+        public string totalStudentsFemale()
+        {
+            return doCount("SELECT COUNT(*) FROM `estudantes` WHERE `genero`='Feminino'");
         }
     }
     

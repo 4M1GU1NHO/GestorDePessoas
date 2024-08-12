@@ -26,6 +26,18 @@ namespace GestorDePessoas
             colorPanelTotal = panelTotal.BackColor;
             colorPanelMen = panelMen.BackColor;
             colorPanelWomen = panelWomen.BackColor;
+            
+            Estudante estudante = new Estudante();
+            double studentTotal = Convert.ToDouble(estudante.totalStudents());
+            double studentMen = Convert.ToDouble(estudante.totalStudentsMale());
+            double studentWomen = Convert.ToDouble(estudante.totalStudentsFemale());
+
+            double percentageMen = studentMen * 100 / studentTotal;
+            double percentageWomen = studentWomen * 100 / studentTotal;
+
+            labelTotal.Text = "Total de Estudantes: " + studentTotal.ToString();
+            labelMen.Text = "Meninos: " + percentageMen.ToString() + "%";
+            labelWomen.Text = "Meninas: " + percentageWomen.ToString() +"%";
         }
 
         private void labelTotal_MouseEnter(object sender, EventArgs e)
@@ -63,6 +75,6 @@ namespace GestorDePessoas
         {
             panelWomen.BackColor = colorPanelWomen;
             labelWomen.ForeColor = Color.Black;
-        }
+        }       
     }
 }
