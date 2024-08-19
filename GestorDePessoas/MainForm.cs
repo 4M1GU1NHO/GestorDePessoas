@@ -42,12 +42,14 @@ namespace GestorDePessoas
 
         private void editarRemoverToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            ManageStudentsForm insertForm = new ManageStudentsForm();
+            insertForm.Show(this);
         }
 
         private void gerenciarAlunosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            ManageStudentsForm insertForm = new ManageStudentsForm();
+            insertForm.Show(this);
         }
 
         private void imprimirToolStripMenuItem_Click(object sender, EventArgs e)
