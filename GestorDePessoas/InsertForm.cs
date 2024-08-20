@@ -77,7 +77,6 @@ namespace GestorDePessoas
             if(searchPhoto.ShowDialog() == DialogResult.OK)
             { 
                 pictureBoxStudent.Image = Image.FromFile(searchPhoto.FileName);
-
             }
         }
 

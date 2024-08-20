@@ -91,6 +91,7 @@
             this.buttonSendPhoto.TabIndex = 49;
             this.buttonSendPhoto.Text = "Enviar";
             this.buttonSendPhoto.UseVisualStyleBackColor = true;
+            this.buttonSendPhoto.Click += new System.EventHandler(this.buttonSendPhoto_Click);
             // 
             // buttonRedefine
             // 
@@ -288,6 +289,7 @@
             this.buttonDowload.TabIndex = 52;
             this.buttonDowload.Text = "Baixar";
             this.buttonDowload.UseVisualStyleBackColor = true;
+            this.buttonDowload.Click += new System.EventHandler(this.buttonDowload_Click);
             // 
             // buttonUpdate
             // 
@@ -326,6 +328,7 @@
             this.buttonSearch.TabIndex = 56;
             this.buttonSearch.Text = "Buscar";
             this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
             // label7
             // 

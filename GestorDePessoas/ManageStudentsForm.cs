@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -34,7 +35,7 @@ namespace GestorDePessoas
             colunaDeFotos = (DataGridViewImageColumn)dataGridViewStudentList.Columns[7];
             colunaDeFotos.ImageLayout = DataGridViewImageCellLayout.Stretch;
             dataGridViewStudentList.AllowUserToAddRows = false;
-            
+
             labelStudentsTotal.Text = "Total de Alunos:" + dataGridViewStudentList.Rows.Count;
         }
 
@@ -76,6 +77,40 @@ namespace GestorDePessoas
             radioButtonMasc.Checked = true;
             dateTimePickerBirthday.Value = DateTime.Now;
             pictureBoxStudent.Image = null;
+        }
+
+        private void buttonSendPhoto_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog searchPhoto = new OpenFileDialog();
+
+            searchPhoto.Filter = "Escolha a foto (*.jpg;*.png;*.jpeg;*.gif)|*.jpg;*.png;*.jpeg;*.gif";
+
+            if (searchPhoto.ShowDialog() == DialogResult.OK)
+            {
+                pictureBoxStudent.Image = Image.FromFile(searchPhoto.FileName);
+            }
+        }
+
+        private void buttonDowload_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveArquive = new SaveFileDialog();
+            saveArquive.FileName = "Estudante_" + textBoxID.Text;
+            if (pictureBoxStudent.Image == null)
+            {
+                MessageBox.Show("Insira uma foto", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else 
+            { 
+                saveArquive.ShowDialog();
+                pictureBoxStudent.Image.Save(saveArquive.FileName + ("." + ImageFormat.Jpeg.ToString()));
+            }
+        }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            string search = "SELECT * FROM `estudantes` WHERE CONCAT(`nome`,`sobrenome`,`endereco`) LIKE`%"+textBoxSearch.Text+"%'`";
+            MySqlCommand comando = new MySqlCommand(search);
+            FillTable(comando);
         }
     }
 }
